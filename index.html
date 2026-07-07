@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DarrelHub</title>
+    <title>KMINGSHIT 2K26</title>
     <style>
-        /* YouTube Dark Theme Colors */
+        /* YouTube Dark Theme Colors & Custom Background */
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +14,14 @@
         }
 
         body {
-            background-color: #0f0f0f;
+            /* Sets your image as a fixed, full-screen covering background */
+            background-image: linear-gradient(rgba(15, 15, 15, 0.85), rgba(15, 15, 15, 0.85)), url('Untitled design.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: #f1f1f1;
+            min-height: 100vh;
         }
 
         /* Navbar Styles */
@@ -24,10 +30,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 12px 24px;
-            background-color: #0f0f0f;
+            background-color: rgba(15, 15, 15, 0.95);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(5px);
         }
 
         .logo {
@@ -57,30 +64,31 @@
 
         /* Banner Section */
         .hero-section {
-            text-align: left;
-            padding: 32px 24px;
+            text-align: center;
+            padding: 40px 24px;
             max-width: 1284px;
             margin: 0 auto;
-            border-bottom: 1px solid #3f3f3f;
         }
 
         .hero-content h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 4px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            letter-spacing: -1px;
         }
 
         .subtitle {
-            font-size: 0.9rem;
-            color: #aaa;
+            font-size: 1rem;
+            color: #ccc;
             margin-bottom: 16px;
+            font-weight: 500;
         }
 
         /* Video Grid Layout */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-            gap: 16px;
+            gap: 20px;
             max-width: 1284px;
             margin: 24px auto;
             padding: 0 24px;
@@ -88,18 +96,28 @@
 
         /* Video Card */
         .profile-card {
-            background: transparent;
+            background: rgba(39, 39, 39, 0.7);
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            border-radius: 12px;
+            padding: 12px;
+            transition: transform 0.2s ease, background 0.2s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-4px);
+            background: rgba(50, 50, 50, 0.85);
         }
 
         .thumbnail-box {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            padding-top: 100%; /* Square aspect ratio matching your profiles */
             background-color: #272727;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
             margin-bottom: 12px;
         }
@@ -111,24 +129,35 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.2s ease;
         }
 
-        .profile-card:hover .profile-img {
-            transform: scale(1.03);
+        .card-info {
+            text-align: center;
         }
 
         .card-info h3 {
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 1.1rem;
+            font-weight: 600;
             line-height: 1.4rem;
             color: #f1f1f1;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
+        /* View Profile / Play Button style */
         .view-btn {
+            display: block;
+            background-color: #0099ff;
+            color: white;
+            padding: 8px 0;
+            border-radius: 6px;
             font-size: 0.85rem;
-            color: #aaa;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .profile-card:hover .view-btn {
+            background-color: #007acc;
         }
 
         /* POPUP BOX OVERLAY */
@@ -180,114 +209,105 @@
             max-width: 1284px;
             margin: 40px auto 16px auto;
             padding: 0 24px;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 700;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="logo"><span>PRO</span> DARRELHUB</div>
+        <div class="logo">🔥 <span>PRO</span> KMINGSHIT 2K26 🔥</div>
         <div class="nav-links">
             <a href="#">Home</a>
-            <a href="#">Videos</a>
             <a href="#">Memories</a>
         </div>
     </nav>
 
-    <!-- HEADER / BANNER -->
     <header class="hero-section">
         <div class="hero-content">
-            <h1>DarrelHub</h1>
-            <p class="subtitle">@SevenBrothers • 7 members • One Bond • One Journey 💔</p>
+            <h1>KMINGSHIT 2K26</h1>
+            <p class="subtitle">Welcome Darrel Hub Fans I will let you look at my body</p>
         </div>
     </header>
 
-    <!-- CONTENT DISPLAY GRID (All 7 Members Included) -->
     <main class="cards-container">
         
-        <!-- Member 1: Andro -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Andro" class="profile-img">
             </div>
             <div class="card-info">
-                <h3>Andro - Official Profile</h3>
-                <span class="view-btn">Play Video</span>
+                <h3>Andro body</h3>
+                <span class="view-btn">View Profile</span>
             </div>
         </div>
 
-        <!-- Member 2: Crislee -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400" alt="Crislee" class="profile-img">
             </div>
             <div class="card-info">
-                <h3>Crislee - Official Profile</h3>
-                <span class="view-btn">Play Video</span>
+                <h3>Crislee body</h3>
+                <span class="view-btn">View Profile</span>
             </div>
         </div>
 
-        <!-- Member 3: Darel -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="Darel" class="profile-img">
             </div>
             <div class="card-info">
-                <h3>Darel - Official Profile</h3>
-                <span class="view-btn">Play Video</span>
+                <h3>Darel body</h3>
+                <span class="view-btn">View Profile</span>
             </div>
         </div>
 
-        <!-- Member 4: Ford -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400" alt="Ford" class="profile-img">
             </div>
             <div class="card-info">
-                <h3>Ford - Official Profile</h3>
-                <span class="view-btn">Play Video</span>
+                <h3>Ford body</h3>
+                <span class="view-btn">View Profile</span>
             </div>
         </div>
 
-        <!-- Member 5: Jerson -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400" alt="Jerson" class="profile-img">
             </div>
             <div class="card-info">
-                <h3>Jerson - Official Profile</h3>
-                <span class="view-btn">Play Video</span>
+                <h3>Jerson body</h3>
+                <span class="view-btn">View Profile</span>
             </div>
         </div>
 
-        <!-- Member 6: Mike -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400" alt="Mike" class="profile-img">
             </div>
             <div class="card-info">
-                <h3>Mike - Official Profile</h3>
-                <span class="view-btn">Play Video</span>
+                <h3>Mike body</h3>
+                <span class="view-btn">View Profile</span>
             </div>
         </div>
 
-        <!-- Member 7: Shanon -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" alt="Shanon" class="profile-img">
             </div>
             <div class="card-info">
-                <h3>Shanon - Official Profile</h3>
-                <span class="view-btn">Play Video</span>
+                <h3>Shanon body</h3>
+                <span class="view-btn">View Profile</span>
             </div>
         </div>
 
     </main>
 
-    <!-- THE POPUP PLAYER OVERLAY BOX -->
+    <div class="memories-header">📸 OUR MEMORIES</div>
+
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeVideo()">&times;</span>
@@ -298,7 +318,6 @@
         </div>
     </div>
 
-    <!-- SCRIPT CONTROLLER -->
     <script>
         function openVideo(videoUrl) {
             const modal = document.getElementById('videoModal');
@@ -318,8 +337,6 @@
             player.src = "";
         }
     </script>
-    
-    <div class="memories-header">Latest Memories</div>
 
 </body>
 </html>
