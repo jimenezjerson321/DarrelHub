@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMINGSHIT 2K26</title>
+    <title>DARRELHUB P*RN</title>
     <style>
-        /* YouTube Dark Theme Layout */
+        /* YouTube Dark Theme Base with Custom Image Background */
         * {
             margin: 0;
             padding: 0;
@@ -14,21 +14,27 @@
         }
 
         body {
-            background-color: #0f0f0f;
+            /* Sets your image as the background, covering the whole screen */
+            background-image: linear-gradient(rgba(15, 15, 15, 0.65), rgba(15, 15, 15, 0.65)), url('Untitled design.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: #f1f1f1;
             min-height: 100vh;
         }
 
-        /* Navbar Styles */
+        /* Navbar Layout */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 24px;
-            background-color: #0f0f0f;
+            padding: 14px 24px;
+            background-color: rgba(15, 15, 15, 0.9);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(8px);
         }
 
         .logo {
@@ -48,13 +54,13 @@
             font-weight: 500;
         }
 
-        /* Banner Section */
+        /* Header Section */
         .hero-section {
             text-align: center;
             padding: 40px 24px 24px 24px;
             max-width: 1284px;
             margin: 0 auto;
-            border-bottom: 1px solid #272727;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .hero-content h1 {
@@ -65,7 +71,7 @@
 
         .subtitle {
             font-size: 0.95rem;
-            color: #aaa;
+            color: #ccc;
         }
 
         /* Video Grid Layout */
@@ -78,7 +84,7 @@
             padding: 0 24px;
         }
 
-        /* Video Card */
+        /* Flat YouTube Style Card Structure */
         .profile-card {
             background: transparent;
             display: flex;
@@ -89,7 +95,7 @@
         .thumbnail-box {
             position: relative;
             width: 100%;
-            padding-top: 100%; /* Perfect Square Aspect Ratio */
+            padding-top: 100%; /* Perfect Square Ratio */
             background-color: #272727;
             border-radius: 12px;
             overflow: hidden;
@@ -121,9 +127,10 @@
             font-weight: 500;
             color: #f1f1f1;
             line-height: 1.2rem;
+            text-align: center;
         }
 
-        /* Interactive Action Buttons */
+        /* Action Buttons */
         .view-btn {
             display: block;
             background-color: #0099ff;
@@ -141,7 +148,7 @@
             background-color: #007acc;
         }
 
-        /* POPUP BOX OVERLAY */
+        /* POPUP SYSTEM */
         .video-modal {
             display: none;
             position: fixed;
@@ -294,8 +301,6 @@
             player.play();
         }
 
-        function closesVideo() { /* kept legacy mapping backup */ closeVideo(); }
-        
         function closeVideo() {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('popupPlayer');
