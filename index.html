@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DarrelHub</title>
     <style>
-        /* Reset and Base Styles */
+        /* YouTube Dark Theme Colors */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: "Roboto", "Arial", sans-serif;
         }
 
         body {
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #0f0f0f; /* YouTube true dark background */
+            color: #f1f1f1;
         }
 
-        /* Navbar Styles */
+        /* YouTube Header/Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
-            background-color: rgba(20, 20, 20, 0.95);
+            padding: 12px 24px;
+            background-color: #0f0f0f;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -32,204 +32,236 @@
 
         .logo {
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            background-color: #ff0000; /* YouTube Red */
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
         }
 
         .nav-links a {
-            color: #ffffff;
+            color: #f1f1f1;
             text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            margin-left: 24px;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
-        .nav-links a:hover {
-            opacity: 1;
-        }
-
-        /* Hero Section with Background Layout */
+        /* YouTube Channel Banner Style Section */
         .hero-section {
-            position: relative;
-            min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1920') no-repeat center center/cover;
-            text-align: center;
-            padding: 40px 20px;
+            text-align: left;
+            padding: 32px 24px;
+            max-width: 1284px;
+            margin: 0 auto;
+            border-bottom: 1px solid #3f3f3f;
         }
 
         .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
 
         .subtitle {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 40px;
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 16px;
         }
 
-        /* Cards Grid Layout */
+        /* YouTube Video Grid Layout */
         .cards-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            max-width: 1400px;
-            margin: 0 auto 50px auto;
-            padding: 0 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 16px;
+            max-width: 1284px;
+            margin: 24px auto;
+            padding: 0 24px;
         }
 
-        /* Individual Profile Card */
+        /* YouTube Video Card / Channel Card */
         .profile-card {
-            background: rgba(30, 30, 30, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 12px;
-            overflow: hidden;
-            width: 170px;
+            background: transparent;
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            cursor: pointer;
+        }
+
+        /* Thumbnail container to enforce 16:9 widescreen layout */
+        .thumbnail-box {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #272727;
+            border-radius: 12px; /* Modern YouTube rounded corners */
+            overflow: hidden;
+            margin-bottom: 12px;
         }
 
         .profile-img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 180px;
+            height: 100%;
             object-fit: cover;
-            background-color: #333;
+            transition: scale 0.2s ease;
         }
 
+        .profile-card:hover .profile-img {
+            scale: 1.03; /* Subtle hover effect like YouTube */
+        }
+
+        /* Video / Profile Meta details */
         .card-info {
-            padding: 12px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
         }
 
         .card-info h3 {
             font-size: 1rem;
-            margin-bottom: 10px;
-            font-weight: 600;
+            font-weight: 500;
+            line-height: 1.4rem;
+            color: #f1f1f1;
+            margin-bottom: 4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
-        /* Blue "View Profile" Button */
+        /* YouTube styled action link instead of a big blue button */
         .view-btn {
-            display: block;
-            background-color: #0099ff;
-            color: white;
+            font-size: 0.85rem;
+            color: #aaa;
             text-decoration: none;
-            padding: 8px 0;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            transition: background 0.3s ease;
+            font-weight: 400;
         }
 
         .view-btn:hover {
-            background-color: #007acc;
+            color: #ffffff;
         }
 
-        /* Memories Section Header */
-        .memories-header h2 {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            margin-top: 40px;
-            text-transform: uppercase;
+        /* Section header for lower rows */
+        .memories-header {
+            max-width: 1284px;
+            margin: 40px auto 16px auto;
+            padding: 0 24px;
+            font-size: 1.2rem;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR (YouTube Header Vibe) -->
     <nav class="navbar">
-        <div class="logo">🔥 DARRELHUB 🔥</div>
+        <div class="logo"><span>PRO</span> DARRELHUB</div>
         <div class="nav-links">
             <a href="#">Home</a>
+            <a href="#">Videos</a>
             <a href="#">Memories</a>
         </div>
     </nav>
 
-    <!-- HERO / MAIN SECTION -->
+    <!-- CHANNEL INFO AREA -->
     <header class="hero-section">
         <div class="hero-content">
-            <h1>DARRELHUB</h1>
-            <p class="subtitle">Seven Brothers • One Bond • One Journey 💔</p>
-        </div>
-
-        <!-- PROFILE CARDS CONTAINER -->
-        <div class="cards-container">
-            
-            <!-- Card 1 -->
-            <div class="profile-card">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Andro" class="profile-img">
-                <div class="card-info">
-                    <h3>Andro</h3>
-                    <a href="#" class="view-btn">View Profile</a>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="profile-card">
-                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400" alt="Crislee" class="profile-img">
-                <div class="card-info">
-                    <h3>Crislee</h3>
-                    <a href="#" class="view-btn">View Profile</a>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="profile-card">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="Darel" class="profile-img">
-                <div class="card-info">
-                    <h3>Darel</h3>
-                    <a href="#" class="view-btn">View Profile</a>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="profile-card">
-                <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400" alt="Ford" class="profile-img">
-                <div class="card-info">
-                    <h3>Ford</h3>
-                    <a href="#" class="view-btn">View Profile</a>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="profile-card">
-                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400" alt="Jerson" class="profile-img">
-                <div class="card-info">
-                    <h3>Jerson</h3>
-                    <a href="#" class="view-btn">View Profile</a>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="profile-card">
-                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400" alt="Mike" class="profile-img">
-                <div class="card-info">
-                    <h3>Mike</h3>
-                    <a href="#" class="view-btn">View Profile</a>
-                </div>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="profile-card">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" alt="Shanon" class="profile-img">
-                <div class="card-info">
-                    <h3>Shanon</h3>
-                    <a href="#" class="view-btn">View Profile</a>
-                </div>
-            </div>
-
-        </div>
-        
-        <!-- MEMORIES SECTION HEADING -->
-        <div class="memories-header">
-            <h2>📷 OUR MEMORIES</h2>
+            <h1>DarrelHub</h1>
+            <p class="subtitle">@SevenBrothers • 7 members • One Bond • One Journey 💔</p>
         </div>
     </header>
+
+    <!-- CONTENT GRID (Looks exactly like YouTube uploads) -->
+    <main class="cards-container">
+        
+        <!-- Member 1 -->
+        <div class="profile-card">
+            <div class="thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Andro" class="profile-img">
+            </div>
+            <div class="card-info">
+                <h3>Andro - Official Profile</h3>
+                <a href="#" class="view-btn">View Member Profile</a>
+            </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="profile-card">
+            <div class="thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400" alt="Crislee" class="profile-img">
+            </div>
+            <div class="card-info">
+                <h3>Crislee - Official Profile</h3>
+                <a href="#" class="view-btn">View Member Profile</a>
+            </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="profile-card">
+            <div class="thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="Darel" class="profile-img">
+            </div>
+            <div class="card-info">
+                <h3>Darel - Official Profile</h3>
+                <a href="#" class="view-btn">View Member Profile</a>
+            </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="profile-card">
+            <div class="thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400" alt="Ford" class="profile-img">
+            </div>
+            <div class="card-info">
+                <h3>Ford - Official Profile</h3>
+                <a href="#" class="view-btn">View Member Profile</a>
+            </div>
+        </div>
+
+        <!-- Member 5 -->
+        <div class="profile-card">
+            <div class="thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400" alt="Jerson" class="profile-img">
+            </div>
+            <div class="card-info">
+                <h3>Jerson - Official Profile</h3>
+                <a href="#" class="view-btn">View Member Profile</a>
+            </div>
+        </div>
+
+        <!-- Member 6 -->
+        <div class="profile-card">
+            <div class="thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400" alt="Mike" class="profile-img">
+            </div>
+            <div class="card-info">
+                <h3>Mike - Official Profile</h3>
+                <a href="#" class="view-btn">View Member Profile</a>
+            </div>
+        </div>
+
+        <!-- Member 7 -->
+        <div class="profile-card">
+            <div class="thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" alt="Shanon" class="profile-img">
+            </div>
+            <div class="card-info">
+                <h3>Shanon - Official Profile</h3>
+                <a href="#" class="view-btn">View Member Profile</a>
+            </div>
+        </div>
+
+    </main>
+    
+    <div class="memories-header">Latest Memories</div>
 
 </body>
 </html>
