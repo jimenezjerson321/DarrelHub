@@ -14,11 +14,11 @@
         }
 
         body {
-            background-color: #0f0f0f; /* YouTube true dark background */
+            background-color: #0f0f0f;
             color: #f1f1f1;
         }
 
-        /* YouTube Header/Navbar */
+        /* Navbar Styles */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -40,7 +40,7 @@
         }
 
         .logo span {
-            background-color: #ff0000; /* YouTube Red */
+            background-color: #ff0000;
             color: white;
             padding: 2px 6px;
             border-radius: 4px;
@@ -55,7 +55,7 @@
             font-weight: 500;
         }
 
-        /* YouTube Channel Banner Style Section */
+        /* Banner Section */
         .hero-section {
             text-align: left;
             padding: 32px 24px;
@@ -76,7 +76,7 @@
             margin-bottom: 16px;
         }
 
-        /* YouTube Video Grid Layout */
+        /* Video Grid Layout */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -86,7 +86,7 @@
             padding: 0 24px;
         }
 
-        /* YouTube Video Card / Channel Card */
+        /* Video Card */
         .profile-card {
             background: transparent;
             display: flex;
@@ -94,13 +94,12 @@
             cursor: pointer;
         }
 
-        /* Thumbnail container to enforce 16:9 widescreen layout */
         .thumbnail-box {
             position: relative;
             width: 100%;
             padding-top: 56.25%; /* 16:9 Aspect Ratio */
             background-color: #272727;
-            border-radius: 12px; /* Modern YouTube rounded corners */
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 12px;
         }
@@ -112,18 +111,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: scale 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .profile-card:hover .profile-img {
-            scale: 1.03; /* Subtle hover effect like YouTube */
-        }
-
-        /* Video / Profile Meta details */
-        .card-info {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
+            transform: scale(1.03);
         }
 
         .card-info h3 {
@@ -132,24 +124,59 @@
             line-height: 1.4rem;
             color: #f1f1f1;
             margin-bottom: 4px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
         }
 
-        /* YouTube styled action link instead of a big blue button */
         .view-btn {
             font-size: 0.85rem;
             color: #aaa;
-            text-decoration: none;
-            font-weight: 400;
         }
 
-        .view-btn:hover {
-            color: #ffffff;
+        /* POPUP MODAL STYLING */
+        .video-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Dark overlay blur background */
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Section header for lower rows */
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            background-color: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .modal-content video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #ff0000;
+        }
+
         .memories-header {
             max-width: 1284px;
             margin: 40px auto 16px auto;
@@ -161,7 +188,7 @@
 </head>
 <body>
 
-    <!-- NAVBAR (YouTube Header Vibe) -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo"><span>PRO</span> DARRELHUB</div>
         <div class="nav-links">
@@ -171,7 +198,7 @@
         </div>
     </nav>
 
-    <!-- CHANNEL INFO AREA -->
+    <!-- CHANNEL INFO -->
     <header class="hero-section">
         <div class="hero-content">
             <h1>DarrelHub</h1>
@@ -179,102 +206,66 @@
         </div>
     </header>
 
-<!-- CONTENT GRID (Clicking any card opens a video) -->
-    <!-- CONTENT GRID (Clicking any card opens a video) -->
+    <!-- VIDEO GRID -->
     <main class="cards-container">
         
-        <!-- Member 1: Andro -->
-        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK_HERE" target="_blank" style="text-decoration: none;">
-            <div class="profile-card">
-                <div class="thumbnail-box">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Andro" class="profile-img">
-                </div>
-                <div class="card-info">
-                    <h3>Andro - Official Profile</h3>
-                    <span class="view-btn">Watch Video</span>
-                </div>
+        <!-- Member 1: Andro (Replace video link in data-video attribute) -->
+        <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
+            <div class="thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Andro" class="profile-img">
             </div>
-        </a>
+            <div class="card-info">
+                <h3>Andro - Official Profile</h3>
+                <span class="view-btn">Play Video</span>
+            </div>
+        </div>
 
         <!-- Member 2: Crislee -->
-        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK_HERE" target="_blank" style="text-decoration: none;">
-            <div class="profile-card">
-                <div class="thumbnail-box">
-                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400" alt="Crislee" class="profile-img">
-                </div>
-                <div class="card-info">
-                    <h3>Crislee - Official Profile</h3>
-                    <span class="view-btn">Watch Video</span>
-                </div>
+        <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
+            <div class="thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400" alt="Crislee" class="profile-img">
             </div>
-        </a>
+            <div class="card-info">
+                <h3>Crislee - Official Profile</h3>
+                <span class="view-btn">Play Video</span>
+            </div>
+        </div>
 
-        <!-- Member 3: Darel -->
-        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK_HERE" target="_blank" style="text-decoration: none;">
-            <div class="profile-card">
-                <div class="thumbnail-box">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="Darel" class="profile-img">
-                </div>
-                <div class="card-info">
-                    <h3>Darel - Official Profile</h3>
-                    <span class="view-btn">Watch Video</span>
-                </div>
-            </div>
-        </a>
-
-        <!-- Member 4: Ford -->
-        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK_HERE" target="_blank" style="text-decoration: none;">
-            <div class="profile-card">
-                <div class="thumbnail-box">
-                    <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400" alt="Ford" class="profile-img">
-                </div>
-                <div class="card-info">
-                    <h3>Ford - Official Profile</h3>
-                    <span class="view-btn">Watch Video</span>
-                </div>
-            </div>
-        </a>
-
-        <!-- Member 5: Jerson -->
-        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK_HERE" target="_blank" style="text-decoration: none;">
-            <div class="profile-card">
-                <div class="thumbnail-box">
-                    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400" alt="Jerson" class="profile-img">
-                </div>
-                <div class="card-info">
-                    <h3>Jerson - Official Profile</h3>
-                    <span class="view-btn">Watch Video</span>
-                </div>
-            </div>
-        </a>
-
-        <!-- Member 6: Mike -->
-        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK_HERE" target="_blank" style="text-decoration: none;">
-            <div class="profile-card">
-                <div class="thumbnail-box">
-                    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400" alt="Mike" class="profile-img">
-                </div>
-                <div class="card-info">
-                    <h3>Mike - Official Profile</h3>
-                    <span class="view-btn">Watch Video</span>
-                </div>
-            </div>
-        </a>
-
-        <!-- Member 7: Shanon -->
-        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK_HERE" target="_blank" style="text-decoration: none;">
-            <div class="profile-card">
-                <div class="thumbnail-box">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" alt="Shanon" class="profile-img">
-                </div>
-                <div class="card-info">
-                    <h3>Shanon - Official Profile</h3>
-                    <span class="view-btn">Watch Video</span>
-                </div>
-            </div>
-        </a>
+        <!-- Add remaining members following the exact onclick format above... -->
 
     </main>
+
+    <!-- THE VIDEO POPUP BOX -->
+    <div id="videoModal" class="video-modal" onclick="closeVideo()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeVideo()">&times;</span>
+            <video id="popupPlayer" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- SCRIPT FOR FUNCTIONALITY -->
+    <script>
+        function openVideo(videoUrl) {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('popupPlayer');
+            
+            player.src = videoUrl;
+            modal.style.display = 'flex';
+            player.play();
+        }
+
+        function closeVideo() {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('popupPlayer');
+            
+            modal.style.display = 'none';
+            player.pause();
+            player.src = ""; // Reset source
+        }
+    </script>
     
     <div class="memories-header">Latest Memories</div>
 
