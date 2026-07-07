@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KMINGSHIT 2K26</title>
     <style>
-        /* Modern Dark Theme Base & Custom Graphic Background */
+        /* YouTube Dark Theme Layout */
         * {
             margin: 0;
             padding: 0;
@@ -14,110 +14,84 @@
         }
 
         body {
-            /* Full viewport cover with a light dark overlay to guarantee readable text */
-            background-image: linear-gradient(rgba(15, 15, 15, 0.75), rgba(15, 15, 15, 0.75)), url('Untitled design.jpg');
-            background-size: cover;
-            background-position: center top;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            background-color: #0f0f0f;
             color: #f1f1f1;
             min-height: 100vh;
         }
 
-        /* Navbar Layout styling */
+        /* Navbar Styles */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 24px;
-            background-color: rgba(15, 15, 15, 0.9);
+            padding: 12px 24px;
+            background-color: #0f0f0f;
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(8px);
         }
 
         .logo {
             font-weight: bold;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             gap: 6px;
-        }
-
-        .logo span {
-            background-color: #ff0000;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.85rem;
+            letter-spacing: -0.5px;
         }
 
         .nav-links a {
             color: #f1f1f1;
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 24px;
             font-size: 0.9rem;
             font-weight: 500;
         }
 
-        /* Main Channel Header */
+        /* Banner Section */
         .hero-section {
             text-align: center;
-            padding: 40px 24px 20px 24px;
+            padding: 40px 24px 24px 24px;
             max-width: 1284px;
             margin: 0 auto;
+            border-bottom: 1px solid #272727;
         }
 
         .hero-content h1 {
             font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         .subtitle {
             font-size: 0.95rem;
-            color: #ccc;
-            margin-bottom: 8px;
+            color: #aaa;
         }
 
-        /* Flexible Content Grid */
+        /* Video Grid Layout */
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 20px;
             max-width: 1284px;
-            margin: 24px auto;
+            margin: 32px auto;
             padding: 0 24px;
         }
 
-        /* Translucent Glass Profile Cards */
+        /* Video Card */
         .profile-card {
-            background: rgba(30, 30, 30, 0.65);
+            background: transparent;
             display: flex;
             flex-direction: column;
             cursor: pointer;
-            border-radius: 12px;
-            padding: 12px;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            text-align: center;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-4px);
-            background: rgba(45, 45, 45, 0.85);
-            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .thumbnail-box {
             position: relative;
             width: 100%;
-            padding-top: 100%; /* Keeps image aspect ratio neatly square */
+            padding-top: 100%; /* Perfect Square Aspect Ratio */
             background-color: #272727;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 12px;
         }
@@ -129,25 +103,37 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.2s ease;
+        }
+
+        .profile-card:hover .profile-img {
+            transform: scale(1.03);
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .card-info h3 {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 500;
             color: #f1f1f1;
-            margin-bottom: 10px;
+            line-height: 1.2rem;
         }
 
-        /* Modernized Interactive Blue Action Buttons */
+        /* Interactive Action Buttons */
         .view-btn {
             display: block;
             background-color: #0099ff;
             color: white;
             padding: 8px 0;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 0.85rem;
             font-weight: bold;
             text-decoration: none;
+            text-align: center;
             transition: background-color 0.2s;
         }
 
@@ -155,18 +141,7 @@
             background-color: #007acc;
         }
 
-        /* Section Breaks */
-        .memories-header {
-            max-width: 1284px;
-            margin: 40px auto 16px auto;
-            padding: 0 24px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        /* LIGHTBOX POPUP SYSTEM */
+        /* POPUP BOX OVERLAY */
         .video-modal {
             display: none;
             position: fixed;
@@ -301,8 +276,6 @@
 
     </main>
 
-    <div class="memories-header">📸 OUR MEMORIES</div>
-
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeVideo()">&times;</span>
@@ -321,6 +294,8 @@
             player.play();
         }
 
+        function closesVideo() { /* kept legacy mapping backup */ closeVideo(); }
+        
         function closeVideo() {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('popupPlayer');
