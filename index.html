@@ -131,17 +131,15 @@
             color: #aaa;
         }
 
-        /* ------------------------------------- */
-        /* POPUP BOX (MODAL) OVERLAY CODE       */
-        /* ------------------------------------- */
+        /* POPUP BOX OVERLAY */
         .video-modal {
-            display: none; /* Stays hidden until a thumbnail is clicked */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent filter background */
+            background-color: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -162,7 +160,6 @@
             display: block;
         }
 
-        /* Close 'X' Button on top-right of player box */
         .close-btn {
             position: absolute;
             top: 15px;
@@ -190,6 +187,7 @@
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo"><span>PRO</span> DARRELHUB</div>
         <div class="nav-links">
@@ -199,6 +197,7 @@
         </div>
     </nav>
 
+    <!-- HEADER / BANNER -->
     <header class="hero-section">
         <div class="hero-content">
             <h1>DarrelHub</h1>
@@ -206,80 +205,89 @@
         </div>
     </header>
 
+    <!-- CONTENT DISPLAY GRID (All 7 Members Included) -->
     <main class="cards-container">
         
+        <!-- Member 1: Andro -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Andro" class="profile-img">
             </div>
             <div class="card-info">
                 <h3>Andro - Official Profile</h3>
-                <span class="view-btn">Play Video Inside App</span>
+                <span class="view-btn">Play Video</span>
             </div>
         </div>
 
+        <!-- Member 2: Crislee -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400" alt="Crislee" class="profile-img">
             </div>
             <div class="card-info">
                 <h3>Crislee - Official Profile</h3>
-                <span class="view-btn">Play Video Inside App</span>
+                <span class="view-btn">Play Video</span>
             </div>
         </div>
 
+        <!-- Member 3: Darel -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="Darel" class="profile-img">
             </div>
             <div class="card-info">
                 <h3>Darel - Official Profile</h3>
-                <span class="view-btn">Play Video Inside App</span>
+                <span class="view-btn">Play Video</span>
             </div>
         </div>
 
+        <!-- Member 4: Ford -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400" alt="Ford" class="profile-img">
             </div>
             <div class="card-info">
                 <h3>Ford - Official Profile</h3>
-                <span class="view-btn">Play Video Inside App</span>
+                <span class="view-btn">Play Video</span>
             </div>
         </div>
 
+        <!-- Member 5: Jerson -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400" alt="Jerson" class="profile-img">
             </div>
             <div class="card-info">
                 <h3>Jerson - Official Profile</h3>
-                <span class="view-btn">Play Video Inside App</span>
+                <span class="view-btn">Play Video</span>
             </div>
         </div>
 
+        <!-- Member 6: Mike -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400" alt="Mike" class="profile-img">
             </div>
             <div class="card-info">
                 <h3>Mike - Official Profile</h3>
-                <span class="view-btn">Play Video Inside App</span>
+                <span class="view-btn">Play Video</span>
             </div>
         </div>
 
+        <!-- Member 7: Shanon -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" alt="Shanon" class="profile-img">
             </div>
             <div class="card-info">
                 <h3>Shanon - Official Profile</h3>
-                <span class="view-btn">Play Video Inside App</span>
+                <span class="view-btn">Play Video</span>
             </div>
         </div>
 
     </main>
 
+    <!-- THE POPUP PLAYER OVERLAY BOX -->
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeVideo()">&times;</span>
@@ -290,23 +298,24 @@
         </div>
     </div>
 
+    <!-- SCRIPT CONTROLLER -->
     <script>
         function openVideo(videoUrl) {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('popupPlayer');
             
             player.src = videoUrl;
-            modal.style.display = 'flex'; // Reveals the hidden popup overlay
-            player.play(); // Auto-plays the video
+            modal.style.display = 'flex';
+            player.play();
         }
 
         function closeVideo() {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('popupPlayer');
             
-            modal.style.display = 'none'; // Hides overlay completely
-            player.pause(); // Stops background audio track
-            player.src = ""; // Resets memory path
+            modal.style.display = 'none';
+            player.pause();
+            player.src = "";
         }
     </script>
     
