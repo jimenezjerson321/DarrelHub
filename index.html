@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DarrelHub</title>
     <style>
-        /* Modern Layout Base with Full-Screen Photo Background */
+        /* Modern Layout Base with Forced Photo Overrides */
         * {
             margin: 0;
             padding: 0;
@@ -13,24 +13,32 @@
             font-family: "Roboto", "Arial", sans-serif;
         }
 
-        body {
-            /* Loads the background directly from an online server to bypass naming issues */
-            background-image: linear-gradient(rgba(15, 15, 15, 0.4), rgba(15, 15, 15, 0.7)), url('https://i.ibb.co/C3Ym6QfL/Untitled-design-4.jpg');
-            background-size: cover;
-            background-position: center top;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: #f1f1f1;
-            min-height: 100vh;
+        html, body {
+            width: 100% !important;
+            min-height: 100vh !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
-        /* Top Navigation Bar */
+        body {
+            /* Implemented a cache-busting string (?v=2) to forcefully break stuck browser memory */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)), 
+                              url('https://i.ibb.co/C3Ym6QfL/Untitled-design-4.jpg?v=2') !important;
+            background-size: cover !important;
+            background-position: center top !important;
+            background-attachment: fixed !important;
+            background-repeat: no-repeat !important;
+            background-color: #121212 !important; /* Fallback dark mode background instead of gray */
+            color: #f1f1f1;
+        }
+
+        /* Top Navigation Bar Layout */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 14px 24px;
-            background-color: rgba(15, 15, 15, 0.85);
+            background-color: rgba(15, 15, 15, 0.9);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -55,7 +63,7 @@
             font-weight: 500;
         }
 
-        /* Center Header Text Section */
+        /* Centered Header Text Section */
         .hero-section {
             text-align: center;
             padding: 50px 24px 30px 24px;
@@ -77,7 +85,7 @@
             text-shadow: 0 1px 5px rgba(0,0,0,0.9);
         }
 
-        /* Video Profile Grid Layout */
+        /* Video Profile Grid Alignment */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -87,9 +95,9 @@
             padding: 0 24px;
         }
 
-        /* Profile Card Container */
+        /* Profile Card Properties */
         .profile-card {
-            background: rgba(20, 20, 20, 0.6);
+            background: rgba(20, 20, 20, 0.65) !important;
             border-radius: 16px;
             padding: 12px;
             display: flex;
@@ -102,11 +110,10 @@
 
         .profile-card:hover {
             transform: translateY(-4px);
-            background: rgba(30, 30, 30, 0.8);
+            background: rgba(30, 30, 30, 0.85) !important;
             border-color: rgba(255, 255, 255, 0.25);
         }
 
-        /* Square Thumbnail Box */
         .thumbnail-box {
             position: relative;
             width: 100%;
@@ -126,7 +133,6 @@
             object-fit: cover;
         }
 
-        /* Card Label Info */
         .card-info {
             display: flex;
             flex-direction: column;
@@ -142,7 +148,6 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
-        /* Interactive Action Buttons */
         .view-btn {
             display: block;
             background-color: #0099ff;
@@ -160,7 +165,7 @@
             background-color: #007acc;
         }
 
-        /* POPUP VIDEO PLAYER SYSTEM */
+        /* POPUP VIDEO OVERLAY */
         .video-modal {
             display: none;
             position: fixed;
@@ -198,7 +203,6 @@
             font-weight: bold;
             cursor: pointer;
             z-index: 1001;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
         }
 
         .close-btn:hover {
@@ -208,7 +212,6 @@
 </head>
 <body>
 
-    <!-- TOP NAVBAR -->
     <nav class="navbar">
         <div class="logo">🔥 DarrelHub 🔥</div>
         <div class="nav-links">
@@ -217,7 +220,6 @@
         </div>
     </nav>
 
-    <!-- CENTER HEADER TEXT -->
     <header class="hero-section">
         <div class="hero-content">
             <h1>DarrelHub</h1>
@@ -225,10 +227,8 @@
         </div>
     </header>
 
-    <!-- CONTENT PROFILE GRID -->
     <main class="cards-container">
         
-        <!-- Member 1: Andro -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Andro" class="profile-img">
@@ -239,7 +239,6 @@
             </div>
         </div>
 
-        <!-- Member 2: Crislee -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400" alt="Crislee" class="profile-img">
@@ -250,7 +249,6 @@
             </div>
         </div>
 
-        <!-- Member 3: Darel -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="Darel" class="profile-img">
@@ -261,7 +259,6 @@
             </div>
         </div>
 
-        <!-- Member 4: Ford -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400" alt="Ford" class="profile-img">
@@ -272,7 +269,6 @@
             </div>
         </div>
 
-        <!-- Member 5: Jerson -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400" alt="Jerson" class="profile-img">
@@ -283,7 +279,6 @@
             </div>
         </div>
 
-        <!-- Member 6: Mike -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400" alt="Mike" class="profile-img">
@@ -294,7 +289,6 @@
             </div>
         </div>
 
-        <!-- Member 7: Shanon -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" alt="Shanon" class="profile-img">
@@ -307,7 +301,6 @@
 
     </main>
 
-    <!-- LIGHTBOX OVERLAY PLAYER -->
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeVideo()">&times;</span>
@@ -317,7 +310,6 @@
         </div>
     </div>
 
-    <!-- CODE CONTROLLER SCRIPT -->
     <script>
         function openVideo(videoUrl) {
             const modal = document.getElementById('videoModal');
