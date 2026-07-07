@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DarrelHub</title>
     <style>
-        /* Modern Layout Base with Forced Photo Overrides */
+        /* Force Full Reset */
         * {
             margin: 0;
             padding: 0;
@@ -21,24 +21,24 @@
         }
 
         body {
-            /* Implemented a cache-busting string (?v=2) to forcefully break stuck browser memory */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)), 
-                              url('https://i.ibb.co/C3Ym6QfL/Untitled-design-4.jpg?v=2') !important;
-            background-size: cover !important;
-            background-position: center top !important;
-            background-attachment: fixed !important;
+            /* Changed background-position to 'center top' and adjusted sizing containment */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), 
+                              url('https://i.ibb.co/C3Ym6QfL/Untitled-design-4.jpg') !important;
+            background-size: 100% auto !important; /* Spans full width while keeping the top intact */
+            background-position: center top !important; /* Anchors the red lights at the top */
+            background-attachment: scroll !important; /* Keeps background aligned naturally */
             background-repeat: no-repeat !important;
-            background-color: #121212 !important; /* Fallback dark mode background instead of gray */
+            background-color: #0b111e !important; /* Seamless match for the lower background color */
             color: #f1f1f1;
         }
 
-        /* Top Navigation Bar Layout */
+        /* Top Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 14px 24px;
-            background-color: rgba(15, 15, 15, 0.9);
+            background-color: rgba(11, 17, 30, 0.85);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -63,29 +63,29 @@
             font-weight: 500;
         }
 
-        /* Centered Header Text Section */
+        /* Centered Header Section */
         .hero-section {
             text-align: center;
-            padding: 50px 24px 30px 24px;
+            padding: 60px 24px 30px 24px;
             max-width: 1284px;
             margin: 0 auto;
         }
 
         .hero-content h1 {
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             letter-spacing: 0.5px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 12px rgba(0,0,0,0.9);
         }
 
         .subtitle {
             font-size: 0.95rem;
             color: #dddddd;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.9);
+            text-shadow: 0 1px 6px rgba(0,0,0,0.9);
         }
 
-        /* Video Profile Grid Alignment */
+        /* Grid Alignment */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -95,30 +95,30 @@
             padding: 0 24px;
         }
 
-        /* Profile Card Properties */
+        /* Cards Setup */
         .profile-card {
-            background: rgba(20, 20, 20, 0.65) !important;
+            background: rgba(15, 23, 42, 0.6) !important;
             border-radius: 16px;
             padding: 12px;
             display: flex;
             flex-direction: column;
             cursor: pointer;
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.2s ease, background 0.2s ease;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
         }
 
         .profile-card:hover {
             transform: translateY(-4px);
-            background: rgba(30, 30, 30, 0.85) !important;
-            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(15, 23, 42, 0.85) !important;
+            border-color: rgba(0, 153, 255, 0.4);
         }
 
         .thumbnail-box {
             position: relative;
             width: 100%;
             padding-top: 100%; 
-            background-color: #1f1f1f;
+            background-color: #111827;
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 12px;
@@ -165,7 +165,7 @@
             background-color: #007acc;
         }
 
-        /* POPUP VIDEO OVERLAY */
+        /* LIGHTBOX SYSTEM */
         .video-modal {
             display: none;
             position: fixed;
