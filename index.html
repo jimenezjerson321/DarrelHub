@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KMINGSHIT 2K26</title>
     <style>
-        /* YouTube Dark Theme Colors & Custom Background */
+        /* Modern Dark Theme Base & Custom Graphic Background */
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +14,8 @@
         }
 
         body {
-            /* Sets your image as a fixed, full-screen covering background */
-            background-image: linear-gradient(rgba(15, 15, 15, 0.85), rgba(15, 15, 15, 0.85)), url('Untitled design.jpg');
+            /* Full viewport cover with a light dark overlay to guarantee readable text */
+            background-image: linear-gradient(rgba(15, 15, 15, 0.75), rgba(15, 15, 15, 0.75)), url('Untitled design.jpg');
             background-size: cover;
             background-position: center top;
             background-attachment: fixed;
@@ -24,26 +24,25 @@
             min-height: 100vh;
         }
 
-        /* Navbar Styles */
+        /* Navbar Layout styling */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 24px;
-            background-color: rgba(15, 15, 15, 0.95);
+            padding: 14px 24px;
+            background-color: rgba(15, 15, 15, 0.9);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
         }
 
         .logo {
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             display: flex;
             align-items: center;
             gap: 6px;
-            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -51,71 +50,72 @@
             color: white;
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .nav-links a {
             color: #f1f1f1;
             text-decoration: none;
-            margin-left: 24px;
-            font-size: 0.95rem;
+            margin-left: 20px;
+            font-size: 0.9rem;
             font-weight: 500;
         }
 
-        /* Banner Section */
+        /* Main Channel Header */
         .hero-section {
             text-align: center;
-            padding: 40px 24px;
+            padding: 40px 24px 20px 24px;
             max-width: 1284px;
             margin: 0 auto;
         }
 
         .hero-content h1 {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             font-weight: 800;
-            margin-bottom: 6px;
-            letter-spacing: -1px;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #ccc;
-            margin-bottom: 16px;
-            font-weight: 500;
+            margin-bottom: 8px;
         }
 
-        /* Video Grid Layout */
+        /* Flexible Content Grid */
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
             max-width: 1284px;
             margin: 24px auto;
             padding: 0 24px;
         }
 
-        /* Video Card */
+        /* Translucent Glass Profile Cards */
         .profile-card {
-            background: rgba(39, 39, 39, 0.7);
+            background: rgba(30, 30, 30, 0.65);
             display: flex;
             flex-direction: column;
             cursor: pointer;
             border-radius: 12px;
             padding: 12px;
-            transition: transform 0.2s ease, background 0.2s ease;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
         }
 
         .profile-card:hover {
             transform: translateY(-4px);
-            background: rgba(50, 50, 50, 0.85);
+            background: rgba(45, 45, 45, 0.85);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .thumbnail-box {
             position: relative;
             width: 100%;
-            padding-top: 100%; /* Square aspect ratio matching your profiles */
+            padding-top: 100%; /* Keeps image aspect ratio neatly square */
             background-color: #272727;
             border-radius: 8px;
             overflow: hidden;
@@ -131,19 +131,14 @@
             object-fit: cover;
         }
 
-        .card-info {
-            text-align: center;
-        }
-
         .card-info h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            line-height: 1.4rem;
             color: #f1f1f1;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        /* View Profile / Play Button style */
+        /* Modernized Interactive Blue Action Buttons */
         .view-btn {
             display: block;
             background-color: #0099ff;
@@ -153,14 +148,25 @@
             font-size: 0.85rem;
             font-weight: bold;
             text-decoration: none;
-            transition: background 0.3s ease;
+            transition: background-color 0.2s;
         }
 
         .profile-card:hover .view-btn {
             background-color: #007acc;
         }
 
-        /* POPUP BOX OVERLAY */
+        /* Section Breaks */
+        .memories-header {
+            max-width: 1284px;
+            margin: 40px auto 16px auto;
+            padding: 0 24px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* LIGHTBOX POPUP SYSTEM */
         .video-modal {
             display: none;
             position: fixed;
@@ -181,7 +187,6 @@
             background-color: #000;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .modal-content video {
@@ -198,27 +203,17 @@
             font-weight: bold;
             cursor: pointer;
             z-index: 1001;
-            transition: color 0.2s;
         }
 
         .close-btn:hover {
             color: #ff0000;
-        }
-
-        .memories-header {
-            max-width: 1284px;
-            margin: 40px auto 16px auto;
-            padding: 0 24px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-align: center;
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">🔥 <span>PRO</span> KMINGSHIT 2K26 🔥</div>
+        <div class="logo">🔥 KMINGSHIT 2K26 🔥</div>
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#">Memories</a>
@@ -313,7 +308,6 @@
             <span class="close-btn" onclick="closeVideo()">&times;</span>
             <video id="popupPlayer" controls>
                 <source src="" type="video/mp4">
-                Your browser does not support the video tag.
             </video>
         </div>
     </div>
@@ -322,7 +316,6 @@
         function openVideo(videoUrl) {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('popupPlayer');
-            
             player.src = videoUrl;
             modal.style.display = 'flex';
             player.play();
@@ -331,7 +324,6 @@
         function closeVideo() {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('popupPlayer');
-            
             modal.style.display = 'none';
             player.pause();
             player.src = "";
