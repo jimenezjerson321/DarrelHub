@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DarrelHub</title>
+    <title>DARRELHUB P*RN</title>
     <style>
-        /* YouTube Dark Theme Base with Custom Image Background */
+        /* Modern Layout Base with Full-Screen Photo Background */
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +14,8 @@
         }
 
         body {
-            /* Sets your image as the background, covering the whole screen */
-            background-image: linear-gradient(rgba(15, 15, 15, 0.65), rgba(15, 15, 15, 0.65)), url('Untitled design.jpg');
+            /* Loads your photo as the background with a smooth dark blend overlay */
+            background-image: linear-gradient(rgba(15, 15, 15, 0.55), rgba(15, 15, 15, 0.75)), url('Untitled design_4.jpg');
             background-size: cover;
             background-position: center top;
             background-attachment: fixed;
@@ -24,17 +24,18 @@
             min-height: 100vh;
         }
 
-        /* Navbar Layout */
+        /* Top Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 14px 24px;
-            background-color: rgba(15, 15, 15, 0.9);
+            background-color: rgba(15, 15, 15, 0.85);
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .logo {
@@ -54,49 +55,63 @@
             font-weight: 500;
         }
 
-        /* Header Section */
+        /* Center Header Text Section */
         .hero-section {
             text-align: center;
-            padding: 40px 24px 24px 24px;
+            padding: 50px 24px 30px 24px;
             max-width: 1284px;
             margin: 0 auto;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .hero-content h1 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         .subtitle {
             font-size: 0.95rem;
-            color: #ccc;
+            color: #dddddd;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
         }
 
-        /* Video Grid Layout */
+        /* Video Profile Grid Layout */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 20px;
+            gap: 24px;
             max-width: 1284px;
-            margin: 32px auto;
+            margin: 16px auto 50px auto;
             padding: 0 24px;
         }
 
-        /* Flat YouTube Style Card Structure */
+        /* Profile Card Container */
         .profile-card {
-            background: transparent;
+            background: rgba(20, 20, 20, 0.4);
+            border-radius: 16px;
+            padding: 12px;
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s ease, background 0.2s ease;
         }
 
+        .profile-card:hover {
+            transform: translateY(-4px);
+            background: rgba(20, 20, 20, 0.7);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Square Thumbnail Box */
         .thumbnail-box {
             position: relative;
             width: 100%;
-            padding-top: 100%; /* Perfect Square Ratio */
-            background-color: #272727;
+            padding-top: 100%; 
+            background-color: #1f1f1f;
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 12px;
@@ -109,17 +124,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.2s ease;
         }
 
-        .profile-card:hover .profile-img {
-            transform: scale(1.03);
-        }
-
+        /* Card Label Info */
         .card-info {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
         .card-info h3 {
@@ -128,14 +139,15 @@
             color: #f1f1f1;
             line-height: 1.2rem;
             text-align: center;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
-        /* Action Buttons */
+        /* Interactive Action Buttons */
         .view-btn {
             display: block;
             background-color: #0099ff;
             color: white;
-            padding: 8px 0;
+            padding: 9px 0;
             border-radius: 8px;
             font-size: 0.85rem;
             font-weight: bold;
@@ -148,7 +160,7 @@
             background-color: #007acc;
         }
 
-        /* POPUP SYSTEM */
+        /* POPUP VIDEO PLAYER SYSTEM */
         .video-modal {
             display: none;
             position: fixed;
@@ -156,7 +168,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.92);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -169,6 +181,7 @@
             background-color: #000;
             border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .modal-content video {
@@ -181,36 +194,41 @@
             top: 15px;
             right: 20px;
             color: white;
-            font-size: 30px;
+            font-size: 32px;
             font-weight: bold;
             cursor: pointer;
             z-index: 1001;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
         }
 
         .close-btn:hover {
-            color: #ff0000;
+            color: #ff3333;
         }
     </style>
 </head>
 <body>
 
+    <!-- TOP NAVBAR -->
     <nav class="navbar">
-        <div class="logo">🔥 DarrelHub 🔥</div>
+        <div class="logo">🔥 DARRELHUB P*RN 🔥</div>
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#">Memories</a>
         </div>
     </nav>
 
+    <!-- CENTER HEADER TEXT -->
     <header class="hero-section">
         <div class="hero-content">
-            <h1>DarrelHub</h1>
+            <h1>DARRELHUB P*RN</h1>
             <p class="subtitle">Welcome Darrel Hub Fans I will let you look at my body</p>
         </div>
     </header>
 
+    <!-- CONTENT PROFILE GRID -->
     <main class="cards-container">
         
+        <!-- Member 1: Andro -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Andro" class="profile-img">
@@ -221,6 +239,7 @@
             </div>
         </div>
 
+        <!-- Member 2: Crislee -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400" alt="Crislee" class="profile-img">
@@ -231,6 +250,7 @@
             </div>
         </div>
 
+        <!-- Member 3: Darel -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="Darel" class="profile-img">
@@ -241,6 +261,7 @@
             </div>
         </div>
 
+        <!-- Member 4: Ford -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400" alt="Ford" class="profile-img">
@@ -251,6 +272,7 @@
             </div>
         </div>
 
+        <!-- Member 5: Jerson -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400" alt="Jerson" class="profile-img">
@@ -261,6 +283,7 @@
             </div>
         </div>
 
+        <!-- Member 6: Mike -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400" alt="Mike" class="profile-img">
@@ -271,6 +294,7 @@
             </div>
         </div>
 
+        <!-- Member 7: Shanon -->
         <div class="profile-card" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
             <div class="thumbnail-box">
                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" alt="Shanon" class="profile-img">
@@ -283,6 +307,7 @@
 
     </main>
 
+    <!-- LIGHTBOX OVERLAY PLAYER -->
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeVideo()">&times;</span>
@@ -292,6 +317,7 @@
         </div>
     </div>
 
+    <!-- CODE CONTROLLER SCRIPT -->
     <script>
         function openVideo(videoUrl) {
             const modal = document.getElementById('videoModal');
